@@ -18,6 +18,7 @@ from . import element3 as element
 
 from hashlib import md5
 from ..resolved.crypt import crypt
+from ..resolved.opengauss import sha256_pw
 
 try:
 	from ..port.optimized import consume_tuple_messages
@@ -172,7 +173,7 @@ class Negotiation(Transaction):
 			(b'M', "unsupported authentication request %r(%d)" %(
 				element.AuthNameMap.get(req, '<unknown>'), req,
 			)),
-			(b'H', "'postgresql.protocol' only supports: MD5, crypt, plaintext, and trust."),
+			(b'H', "'postgresql.protocol' only supports: SHA256(for opengauss), MD5, crypt, plaintext, and trust."),
 		))
 		self.state = Complete
 
@@ -205,6 +206,9 @@ class Negotiation(Transaction):
 			elif req == element.AuthRequest_MD5:
 				pw = md5(self.password + self.startup_message[b'user']).hexdigest().encode('ascii')
 				pw = b'md5' + md5(pw + self.authtype.salt).hexdigest().encode('ascii')
+			elif req == element.AuthRequest_SHA256:
+				pw = sha256_pw(self.startup_message[b'user'], self.password, self.authtype.salt)
+				print("pq: sha256 password - ", pw.decode())
 			else:
 				##
 				# Not going to work. Sorry :(

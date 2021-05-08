@@ -620,6 +620,7 @@ AuthRequest_Cleartext = 3
 AuthRequest_Password = AuthRequest_Cleartext
 AuthRequest_Crypt = 4
 AuthRequest_MD5 = 5
+AuthRequest_SHA256 = 10 # implementation for opengauss
 
 # Unsupported by pg_protocol.
 AuthRequest_KRB4 = 1
@@ -640,6 +641,7 @@ AuthNameMap = {
 	AuthRequest_SSPI : 'SSPI',
 	AuthRequest_GSS : 'GSS',
 	AuthRequest_GSSContinue : 'GSSContinue',
+	AuthRequest_SHA256: 'SHA256',
 }
 
 class Authentication(Message):
