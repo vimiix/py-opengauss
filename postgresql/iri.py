@@ -30,8 +30,13 @@ def structure(d, fieldproc = ri.unescape):
 	"""
 	Create a clientparams dictionary from a parsed RI.
 	"""
-	if d.get('scheme', 'pq').lower() not in {'pq', 'postgres', 'postgresql'}:
-		raise ValueError("PQ-IRI scheme is not 'pq', 'postgres', or 'postgresql'")
+	scheme = d.get('scheme', 'pq').lower()
+	if scheme not in {'pq', 'postgres', 'postgresql', 'og', 'opengauss'}:
+		raise ValueError("PQ-IRI scheme is not 'pq', 'postgres', 'postgresql', 'og' or 'opengauss'")
+	if scheme in {'og', 'opengauss'}:
+		# recover opengauss scheme to pq
+		d['scheme'] = 'pq'
+
 	cpd = {
 		k : fieldproc(v) for k, v in d.items()
 		if k not in ('path', 'fragment', 'query', 'host', 'scheme')

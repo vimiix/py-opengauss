@@ -35,9 +35,11 @@ From a clone:
 
 ### Basic Usage
 
+> Support schemes: ['pq', 'postgres', 'postgresql', 'og', 'opengauss']
+
 ```python
-import postgresql
-db = postgresql.open('pq://user:password@host:port/database')
+import postgresql as og_driver
+db = og_driver.open('opengauss://user:password@host:port/database')
 
 get_table = db.prepare("SELECT * from information_schema.tables WHERE table_name = $1")
 print(get_table("tables"))

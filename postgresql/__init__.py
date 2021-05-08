@@ -44,6 +44,9 @@ def open(iri = None, prompt_title = None, **kw):
 		# General Format:
 		>>> db = postgresql.open('pq://user:password@host:port/database')
 
+		# Also support opengauss scheme:
+		>>> db = postgresql.open('opengauss://user:password@host:port/database')
+
 		# Connect to 'postgres' at localhost.
 		>>> db = postgresql.open('localhost/postgres')
 
