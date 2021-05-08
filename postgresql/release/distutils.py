@@ -19,6 +19,10 @@ except ImportError as e:
 	from distutils.core import Extension, Command
 
 LONG_DESCRIPTION = """
+This package is based on py-postgresql upgrades to work with openGauss.
+
+Forked Repo: http://github.com/vimiix/py-postgresql-og
+
 .. warning::
 	In v1.3, `postgresql.driver.dbapi20.connect` will now raise `ClientCannotConnectError` directly.
 	Exception traps around connect should still function, but the `__context__` attribute
