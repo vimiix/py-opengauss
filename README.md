@@ -25,12 +25,12 @@ If you have automated installations using PyPI, make sure that they specify a ma
 
 Using PyPI.org:
 
-	$ pip install py-postgresql
+	$ pip install py-postgresql-og
 
 From a clone:
 
-	$ git clone https://github.com/python-postgres/fe.git
-	$ cd fe
+	$ git clone https://github.com/vimiix/py-postgresql-og.git
+	$ cd py-postgresql-og
 	$ python3 ./setup.py install # Or use in-place without installation(PYTHONPATH).
 
 ### Basic Usage
