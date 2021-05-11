@@ -35,7 +35,7 @@ def percent_parameters(sql):
 def convert_keywords(keys, mapping):
 	return [mapping[k] for k in keys]
 
-from postgresql.exceptions import \
+from py_opengauss.exceptions import \
 	Error, DataError, InternalError, \
 	ICVError as IntegrityError, \
 	SEARVError as ProgrammingError, \
@@ -314,7 +314,7 @@ class Connection(Connection):
 	"""
 	DB-API 2.0 connection implementation for PG-API connection objects.
 	"""
-	from postgresql.exceptions import \
+	from py_opengauss.exceptions import \
 		Error, DataError, InternalError, \
 		ICVError as IntegrityError, \
 		SEARVError as ProgrammingError, \

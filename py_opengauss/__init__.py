@@ -40,15 +40,15 @@ def open(iri = None, prompt_title = None, **kw):
 	Create a `postgresql.api.Connection` to the server referenced by the given
 	`iri`::
 
-		>>> import postgresql
+		>>> import py_opengauss
 		# General Format:
-		>>> db = postgresql.open('pq://user:password@host:port/database')
+		>>> db = py_opengauss.open('pq://user:password@host:port/database')
 
 		# Also support opengauss scheme:
-		>>> db = postgresql.open('opengauss://user:password@host:port/database')
+		>>> db = py_opengauss.open('opengauss://user:password@host:port/database')
 
 		# Connect to 'postgres' at localhost.
-		>>> db = postgresql.open('localhost/postgres')
+		>>> db = py_opengauss.open('localhost/postgres')
 
 	Connection keywords can also be used with `open`. See the narratives for
 	more information.

@@ -2,7 +2,7 @@
 # .test.test_iri
 ##
 import unittest
-import postgresql.iri as pg_iri
+import py_opengauss.iri as pg_iri
 
 value_errors = (
 	# Invalid scheme.

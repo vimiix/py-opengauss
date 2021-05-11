@@ -2,7 +2,7 @@
 # .test.test_exceptions
 ##
 import unittest
-import postgresql.exceptions as pg_exc
+import py_opengauss.exceptions as pg_exc
 
 class test_exceptions(unittest.TestCase):
 	def test_pg_code_lookup(self):

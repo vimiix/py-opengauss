@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import binascii
 import hmac
-import struct
 from hashlib import md5, pbkdf2_hmac, sha256
 from ..python.structlib import ulong_unpack
 

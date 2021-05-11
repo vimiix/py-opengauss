@@ -21,7 +21,7 @@ except ImportError as e:
 LONG_DESCRIPTION = """
 This package is based on py-postgresql upgrades to work with openGauss.
 
-Forked Repo: http://github.com/vimiix/py-postgresql-og
+Forked Repo: http://github.com/vimiix/py-opengauss
 
 .. warning::
 	In v1.3, `postgresql.driver.dbapi20.connect` will now raise `ClientCannotConnectError` directly.
@@ -169,7 +169,7 @@ def standard_setup_keywords(build_extensions = True, prefix = default_prefix):
 	d = {
 		'name' : name,
 		'version' : version,
-		'description' : 'PostgreSQL driver and tools library.',
+		'description' : 'Opengauss driver and tools library.',
 		'long_description' : LONG_DESCRIPTION,
 		'long_description_content_type' : 'text/x-rst',
 		'author' : 'James William Pye',
