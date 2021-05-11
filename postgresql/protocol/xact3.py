@@ -182,7 +182,6 @@ class Negotiation(Transaction):
 		Generator keeping the state of the connection negotiation process.
 		"""
 		x = (yield (self.startup_message,))
-
 		if x[0] != element.Authentication.type:
 			self.fatal = True
 			self.error_message = element.ClientError((
@@ -208,7 +207,6 @@ class Negotiation(Transaction):
 				pw = b'md5' + md5(pw + self.authtype.salt).hexdigest().encode('ascii')
 			elif req == element.AuthRequest_SHA256:
 				pw = sha256_pw(self.startup_message[b'user'], self.password, self.authtype.salt)
-				print("pq: sha256 password - ", pw.decode())
 			else:
 				##
 				# Not going to work. Sorry :(
