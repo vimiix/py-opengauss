@@ -9,12 +9,6 @@ MD5_PASSWORD = 1
 SHA256_PASSWORD = 2
 
 
-def _read_int(bs):
-	if len(bs) < 4:
-		raise Exception("EOF Exception")
-	return (bs[0] & 0xFF) << 24 | (bs[1] & 0xFF) << 16 | (bs[2] & 0xFF) << 8 | (bs[3] & 0xFF)
-
-
 def sha256_pw(user, password, salt):
 	password_stored_method, salt = ulong_unpack(salt[:4]), salt[4:]
 	if password_stored_method in (PLAIN_PASSWORD, SHA256_PASSWORD):
