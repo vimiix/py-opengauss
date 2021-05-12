@@ -45,3 +45,4 @@ CancelRequestCode = Version((1234, 5678))
 NegotiateSSLCode = Version((1234, 5679))
 V2_0 = Version((2, 0))
 V3_0 = Version((3, 0))
+V3_51 = Version((3, 51)) # add for openGauss

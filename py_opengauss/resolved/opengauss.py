@@ -20,7 +20,8 @@ def sha256_pw(user, password, salt):
 	if password_stored_method in (PLAIN_PASSWORD, SHA256_PASSWORD):
 		random64_code_str, salt = salt[:64].decode(), salt[64:]
 		token_str, salt = salt[:8].decode(), salt[8:]
-		return rfc5802_algorithm(password, random64_code_str, token_str, "", 10000)
+		iteration = ulong_unpack(salt[:4])
+		return rfc5802_algorithm(password, random64_code_str, token_str, "", iteration)
 	elif password_stored_method == 1:
 		# MD5
 		pw = md5(password + user).hexdigest().encode('ascii')

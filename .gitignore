@@ -3,4 +3,4 @@ dist
 *.pyc
 .idea/
 .DS_Store
-py_postgresql_og.egg-info
+py_opengauss.egg-info
