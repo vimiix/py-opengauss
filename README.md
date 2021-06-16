@@ -33,9 +33,26 @@ From a clone:
 	$ cd py-opengauss
 	$ python3 ./setup.py install # Or use in-place without installation(PYTHONPATH).
 
-### Basic Usage
+### Connection URIs：
 
 > Support schemes: ['pq', 'postgres', 'postgresql', 'og', 'opengauss']
+
+```python
+>>> import py_opengauss
+# General Format:
+>>> db = py_opengauss.open('pq://user:password@host:port/database')
+
+# Also support opengauss scheme:
+>>> db = py_opengauss.open('opengauss://user:password@host:port/database')
+
+# multi IP support, will return PRIMARY instance connect:
+>>> db = py_opengauss.open('opengauss://user:password@host1:123,host2:456/database')
+
+# Connect to 'postgres' at localhost.
+>>> db = py_opengauss.open('localhost/postgres')
+```
+
+### Basic Usage
 
 ```python
 import py_opengauss

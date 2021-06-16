@@ -117,6 +117,7 @@ def open(iri = None, prompt_title = None, **kw):
 			if is_primary(c):
 				return c
 			else:
+				c.close()
 				errs.append({params.get('host'): "not primary instance"})
 
 	raise ConnectionError(errs)
