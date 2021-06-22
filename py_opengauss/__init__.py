@@ -105,20 +105,23 @@ def open(iri = None, prompt_title = None, **kw):
 		_pg_param.resolve_password(params)
 
 		C = _pg_driver.default.fit(**params)
-		if return_connector is True:
-			return C
-		else:
-			c = C()
-			try:
-				c.connect()
-			except Exception as e:
-				errs.append({params.get('host'): e})
-				continue
-			if is_primary(c):
-				return c
+		c = C()
+		if len(iri_params) == 1:
+			if return_connector:
+				return C
 			else:
-				c.close()
-				errs.append({params.get('host'): "not primary instance"})
+				c.connect()
+				return c
+		try:
+			c.connect()
+		except Exception as e:
+			errs.append({params.get('host'): e})
+			continue
+		if is_primary(c):
+			return C if return_connector is True else c
+		else:
+			c.close()
+			errs.append({params.get('host'): "not primary instance"})
 
 	raise ConnectionError(errs)
 
