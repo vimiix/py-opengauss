@@ -48,6 +48,14 @@ with db.xact():
 		print(x)
 ```
 
+### sqlalchemy 集成用法
+
+```python
+from sqlalchemy import create_engine
+# 初始化数据库连接:
+engine = create_engine('postgresql+pypostgresql://user:password@host:port/db')
+```
+
 ### Documentation
 
 http://py-postgresql.readthedocs.io
