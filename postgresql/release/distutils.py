@@ -25,7 +25,7 @@ Repo: http://github.com/vimiix/py-opengauss
 Adapted from: http://github.com/python-postgres/fe v1.3.0
 
 .. warning::
-	In v1.3, `py_opengauss.driver.dbapi20.connect` will now raise `ClientCannotConnectError` directly.
+	In v1.3, `postgresql.driver.dbapi20.connect` will now raise `ClientCannotConnectError` directly.
 	Exception traps around connect should still function, but the `__context__` attribute
 	on the error instance will be `None` in the usual failure case as it is no longer
 	incorrectly chained. Trapping `ClientCannotConnectError` ahead of `Error` should
@@ -48,8 +48,8 @@ Features:
 
 Sample PG-API Code::
 
-	>>> import py_opengauss
-	>>> db = py_opengauss.open('pq://user:password@host:port,host:port/database')
+	>>> import postgresql
+	>>> db = postgresql.open('pq://user:password@host:port,host:port/database')
 	>>> db.execute("CREATE TABLE emp (emp_first_name text, emp_last_name text, emp_salary numeric)")
 	>>> make_emp = db.prepare("INSERT INTO emp VALUES ($1, $2, $3)")
 	>>> make_emp("John", "Doe", "75,322")
@@ -60,13 +60,13 @@ Sample PG-API Code::
 
 There is a DB-API 2.0 module as well::
 
-	py_opengauss.driver.dbapi20
+	postgresql.driver.dbapi20
 
 However, PG-API is recommended as it provides greater utility.
 
 Once installed, try out the ``pg_python`` console script::
 
-	$ python3 -m py_opengauss.bin.pg_python -h localhost -p port -U theuser -d database_name
+	$ python3 -m postgresql.bin.pg_python -h localhost -p port -U theuser -d database_name
 
 If a successful connection is made to the remote host, it will provide a Python
 console with the database connection bound to the `db` name.

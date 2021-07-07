@@ -585,7 +585,7 @@ class Startup(Message, dict):
 	Initiate a connection using the given keywords.
 	"""
 	type = b''
-	from py_opengauss.protocol.version import V3_51 as version
+	from postgresql.protocol.version import V3_51 as version
 	packed_version = version.bytes()
 	__slots__ = ()
 	__repr__ = dict_message_repr

@@ -124,6 +124,126 @@ failures due to unanticipated parameters being used. For those applications,
 use of `postgresql.open` is not recommended. Rather, `postgresql.driver.connect`
 should be used when explicit parameterization is desired by an application:
 
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import py_opengauss.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import py_opengauss.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import py_opengauss.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import py_opengauss.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
+	>>> import postgresql.driver as pg_driver
+	>>> db = pg_driver.connect(
+	...  user = 'usename',
+	...  password = 'secret',
+	...  host = 'localhost',
+	...  port = 5432
+	... )
+
+This will create a connection to the server listening on port
+
 	>>> import py_opengauss.driver as pg_driver
 	>>> db = pg_driver.connect(
 	...  user = 'usename',

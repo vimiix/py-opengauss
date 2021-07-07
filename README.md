@@ -1,62 +1,43 @@
-### About
+### 关于
 
-py-opengauss is a Python 3 package providing modules for working with openGauss.  
-Primarily, a high-level driver for querying databases.
+该分支是基于 py-postgresql 1.3.0 版本，新增了两个特性：
+- 支持 opengauss 数据库连接
+- 支持多 IP 连接
 
-For a high performance async interface, MagicStack's asyncpg
-http://github.com/MagicStack/asyncpg should be considered.
+区别于主分支的是，当前分支用于手动通过源码安装，安装后的在代码中引用的包名依旧是 `postgresql`，
+这样做的目的是便于集成到 ORM 框架中使用，比如 **sqlalchemy** 等。
+而主分支的版本主要用于直接使用驱动执行sql的场景，便于直接通过 pip 安装。
 
-py-opengauss, currently, does not have direct support for high-level async
-interfaces provided by recent versions of Python. Future versions may change this.
+### 安装方式
 
-### Advisory
-
-In v1.3, `py_opengauss.driver.dbapi20.connect` will now raise `ClientCannotConnectError` directly.
-Exception traps around connect should still function, but the `__context__` attribute
-on the error instance will be `None` in the usual failure case as it is no longer
-incorrectly chained. Trapping `ClientCannotConnectError` ahead of `Error` should
-allow both cases to co-exist in the event that data is being extracted from
-the `ClientCannotConnectError`.
-
-In v2.0, support for older versions of PostgreSQL and Python will be removed.  
-If you have automated installations using PyPI, make sure that they specify a major version.
-
-### Installation
-
-Using PyPI.org:
-
-	$ pip install py-opengauss
-
-From a clone:
-
-	$ git clone https://github.com/vimiix/py-opengauss.git
+	$ git clone -b for-orm https://github.com/vimiix/py-opengauss.git
 	$ cd py-opengauss
-	$ python3 ./setup.py install # Or use in-place without installation(PYTHONPATH).
+	$ python3 setup.py install
 
-### Connection URIs：
+### 连接方式：
 
-> Support schemes: ['pq', 'postgres', 'postgresql', 'og', 'opengauss']
+> 支持的连接协议列表: ['pq', 'postgres', 'postgresql', 'og', 'opengauss']
 
 ```python
->>> import py_opengauss
+>>> import postgresql
 # General Format:
->>> db = py_opengauss.open('pq://user:password@host:port/database')
+>>> db = postgresql.open('pq://user:password@host:port/database')
 
 # Also support opengauss scheme:
->>> db = py_opengauss.open('opengauss://user:password@host:port/database')
+>>> db = postgresql.open('opengauss://user:password@host:port/database')
 
 # multi IP support, will return PRIMARY instance connect:
->>> db = py_opengauss.open('opengauss://user:password@host1:123,host2:456/database')
+>>> db = postgresql.open('opengauss://user:password@host1:123,host2:456/database')
 
 # Connect to 'postgres' at localhost.
->>> db = py_opengauss.open('localhost/postgres')
+>>> db = postgresql.open('localhost/postgres')
 ```
 
-### Basic Usage
+### 基本用法
 
 ```python
-import py_opengauss
-db = py_opengauss.open('opengauss://user:password@host:port/database')
+import postgresql
+db = postgresql.open('opengauss://user:password@host:port/database')
 
 get_table = db.prepare("SELECT * from information_schema.tables WHERE table_name = $1")
 print(get_table("tables"))

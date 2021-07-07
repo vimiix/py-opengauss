@@ -7,9 +7,9 @@ Notification Management Tools
 Primarily this module houses the `NotificationManager` class which provides an
 iterator for a NOTIFY event loop against a set of connections.
 
-	>>> import py_opengauss
-	>>> db = py_opengauss.open(...)
-	>>> from py_opengauss.notifyman import NotificationManager
+	>>> import postgresql
+	>>> db = postgresql.open(...)
+	>>> from postgresql.notifyman import NotificationManager
 	>>> nm = NotificationManager(db, timeout = 10) # idle events every 10 seconds
 	>>> for x in nm:
 	...  if x is None:

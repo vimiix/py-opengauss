@@ -2,7 +2,7 @@
 Project information.
 """
 
-name = 'py-opengauss'
+name = 'py-postgresql'
 identity = 'http://github.com/vimiix/py-opengauss'
 
 meaculpa = 'Python+openGauss'

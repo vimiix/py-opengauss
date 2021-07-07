@@ -74,7 +74,7 @@ class test_dbapi20(unittest.TestCase):
 	__author__ = 'Stuart Bishop <zen@shangri-la.dropbear.id.au>'
 	"""
 
-	import py_opengauss.driver.dbapi20 as driver
+	import postgresql.driver.dbapi20 as driver
 	table_prefix = 'dbapi20test_' # If you need to specify a prefix for tables
 
 	booze_name = table_prefix + 'booze'

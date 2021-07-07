@@ -31,9 +31,9 @@ def NamedTupleFactory(attribute_map, composite_relid = None):
 
 	To install::
 
-		>>> from py_opengauss.types.namedtuple import NamedTupleFactory
-		>>> import py_opengauss
-		>>> db = py_opengauss.open(...)
+		>>> from postgresql.types.namedtuple import NamedTupleFactory
+		>>> import postgresql
+		>>> db = postgresql.open(...)
 		>>> db.typio.RowTypeFactory(NamedTupleFactory)
 	
 	And **all** Rows produced by that connection will be namedtuple()'s.
@@ -51,7 +51,7 @@ def namedtuples(stmt, from_iter = chain.from_iterable, map = starmap):
 
 	Use::
 	
-		>>> from py_opengauss.types.namedtuple import namedtuples
+		>>> from postgresql.types.namedtuple import namedtuples
 		>>> ps = namedtuples(db.prepare(...))
 		>>> for nt in ps(...):
 		...  nt.a_column_name

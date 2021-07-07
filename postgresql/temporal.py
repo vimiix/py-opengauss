@@ -21,7 +21,7 @@ class Temporal(object):
 
 	Usage::
 
-		>>> from py_opengauss.temporal import pg_tmp
+		>>> from postgresql.temporal import pg_tmp
 		>>> with pg_tmp:
 		...  ps = db.prepare('SELECT 1')
 		...  assert ps.first() == 1

@@ -20,7 +20,7 @@ if sys.version_info[:2] < (3,3):
 sys.path.insert(0, '')
 
 sys.dont_write_bytecode = True
-import py_opengauss.release.distutils as dist
+import postgresql.release.distutils as dist
 defaults = dist.standard_setup_keywords()
 sys.dont_write_bytecode = False
 
