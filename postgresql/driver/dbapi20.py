@@ -421,20 +421,20 @@ def connect(**kw):
 	using the `unix` keyword parameter, `host` and `port` must also be set to ``None``.
 
 	[新增] 如果上层是多host连接方式，比如：user:password@host1:123,host2:456/database
-	需在 kw 字段中新增字段：
-		{ 'addrs': ['host1:123', 'host2:456']}
+	需在 kw 中通过 host 字段以多地址方式传入：
+		{ 'host': 'host1:123,host2:456'}
 	会返回角色为主库的 connect 对象
 	"""
 	kws = []
 	is_multi_host = False
-	if 'addrs' in kw and isinstance(kw.get('addrs'), (list, tuple)):
-		addrs = kw.pop('addrs')
+	if 'host' in kw:
+		addrs = kw.pop('host').split(',')
 		if len(addrs) > 1:
 			is_multi_host = True
 		for addr in addrs:
 			param = deepcopy(kw)
 			if ":" in addr:
-				host, str_port = addr.split(':')
+				host, str_port = addr.strip().split(':')
 				port = int(str_port)
 				param['host'] = host
 				param['port'] = port
