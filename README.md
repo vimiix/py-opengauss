@@ -11,7 +11,7 @@
 
     $ pip install py-opengauss
     
-通过源码安装：g
+通过源码安装：
 
 	$ git clone -b for-orm https://github.com/vimiix/py-opengauss.git
 	$ cd py-opengauss
