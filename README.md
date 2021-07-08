@@ -50,10 +50,14 @@ with db.xact():
 
 ### sqlalchemy 集成用法
 
+由于 sqlalchemy 仅支持单个主机的连接方式，所以要想使用多主机的连接方式，需下载定制版的 sqlalchemy 
+
+https://github.com/vimiix/sqlalchemy
+
 ```python
 from sqlalchemy import create_engine
-# 初始化数据库连接:
-engine = create_engine('postgresql+pypostgresql://user:password@host:port/db')
+# 初始化opengauss数据库多主机连接（适用于没有固定虚拟IP的数据库主备集群）:
+engine = create_engine('postgresql+pyopengauss://user:password@host1:port1,host2:port2/db')
 ```
 
 ### Documentation
