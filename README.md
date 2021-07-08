@@ -13,7 +13,7 @@
     
 通过源码安装：
 
-	$ git clone -b for-orm https://github.com/vimiix/py-opengauss.git
+	$ git clone https://github.com/vimiix/py-opengauss.git
 	$ cd py-opengauss
 	$ python3 setup.py install
 
