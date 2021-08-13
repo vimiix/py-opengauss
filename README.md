@@ -22,25 +22,25 @@
 > 支持的连接协议列表: ['pq', 'postgres', 'postgresql', 'og', 'opengauss']
 
 ```python
->>> import postgresql
+>>> import py_opengauss
 # General Format:
->>> db = postgresql.open('pq://user:password@host:port/database')
+>>> db = py_opengauss.open('pq://user:password@host:port/database')
 
 # Also support opengauss scheme:
->>> db = postgresql.open('opengauss://user:password@host:port/database')
+>>> db = py_opengauss.open('opengauss://user:password@host:port/database')
 
 # multi IP support, will return PRIMARY instance connect:
->>> db = postgresql.open('opengauss://user:password@host1:123,host2:456/database')
+>>> db = py_opengauss.open('opengauss://user:password@host1:123,host2:456/database')
 
 # Connect to 'postgres' at localhost.
->>> db = postgresql.open('localhost/postgres')
+>>> db = py_opengauss.open('localhost/postgres')
 ```
 
 ### 基本用法
 
 ```python
-import postgresql
-db = postgresql.open('opengauss://user:password@host:port/database')
+import py_opengauss
+db = py_opengauss.open('opengauss://user:password@host:port/database')
 
 get_table = db.prepare("SELECT * from information_schema.tables WHERE table_name = $1")
 print(get_table("tables"))
@@ -51,12 +51,18 @@ with db.xact():
 		print(x)
 ```
 
-### sqlalchemy 集成用法
+### sqlalchemy 多IP连接用法
 
-由于 sqlalchemy 仅支持单个主机的连接方式，且不支持 py_opengauss 包。
-所以需下载定制版的 [sqlalchemy](https://github.com/vimiix/sqlalchemy) 手动安装后使用
+*注：sqlalchemy 目前本身是不支持 py_opengauss 包的*
+
+由于 sqlalchemy 在内部会解析连接串，且目前仅支持单个IP的连接串。
+所以需下载定制后的 [sqlalchemy](https://github.com/vimiix/sqlalchemy) 手动安装使用
 
 https://github.com/vimiix/sqlalchemy
+
+该定制版本在内部增加了对于 py_opengauss 包的支持，且支持了多IP连接串。
+
+##### 使用方式
 
 ```python
 from sqlalchemy import create_engine
@@ -72,3 +78,4 @@ http://py-postgresql.readthedocs.io
 
 - http://postgresql.org
 - http://python.org
+
