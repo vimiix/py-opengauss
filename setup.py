@@ -7,7 +7,7 @@ import os
 
 if sys.version_info[:2] < (3,3):
 	sys.stderr.write(
-		"ERROR: py-postgresql is for Python 3.3 and greater." + os.linesep
+		"ERROR: py-opengauss is for Python 3.3 and greater." + os.linesep
 	)
 	sys.stderr.write(
 		"HINT: setup.py was ran using Python " + \
