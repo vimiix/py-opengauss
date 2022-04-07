@@ -139,9 +139,9 @@ def split(s):
 		if len(userpw) == 2:
 			user, pw = userpw
 			safe_pw = quote(pw)
-		s = s[:pos] + user + ':' + safe_pw + s[split_loc:]
-		# update end pos from new string
-		end = len(s)
+			s = s[:pos] + user + ':' + safe_pw + s[split_loc:]
+			# update end pos from new string
+			end = len(s)
 
 	end_of_netloc = end
 
