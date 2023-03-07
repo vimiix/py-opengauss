@@ -1,3 +1,7 @@
+## 声明
+
+> 该仓库已处于归档状态，后期迭代或提问移步：https://gitee.com/opengauss/openGauss-connector-python-pyog
+
 ### 关于
 
 该驱动是基于 [py-postgresql](https://github.com/python-postgres/fe) 1.3.0 版本进行修改的，新增了两个特性：
